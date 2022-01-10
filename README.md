@@ -11,7 +11,7 @@ in a variety of formats:
 </p>
 
 <h2> How To Run Animator: </h2> 
-Animator can be run through the <i>Main()</i> method of the <i>Excellence</i> class in conjunction 
+Animator can be run through the <i><b>Main()</b></i> method of the <i><b>Excellence</b></i> class in conjunction 
 with the following command line arguments:
 <p> 
 <b>"-in"</b> is followed by the name of the animation file in the <i>resources</i> directory
