@@ -1,3 +1,56 @@
+#Animator
+
+<h2> About Project: </h2> 
+Animator utilizes the Model-View-Controller design pattern to render animations
+in a variety of formats: 
+<p> 
+* <b>SVG</b> (viewed through a browser)<br/>
+* <b>Visual</b> (viewed through a java.awt window)<br/>
+* <b>Interactive</b> (viewed and controlled through a java.awt window)<br/>
+* <b>Text</b> (lists all shapes and their respective motions)
+</p>
+
+<h2> How To Run Animator: </h2> 
+Animator can be run through the <i>Main()</i> method of the <i>Excellence</i> class in conjunction 
+with the following command line arguments:
+<p> 
+<b>"-in"</b> is followed by the name of the animation file in the <i>resources</i> directory
+which Animator will render<br/>
+
+<b>"-out"</b> is followed by the name of the file to which the Text or SVG contents will be written
+default is set to <i>System.out</i>
+
+<b>"-view"</b> is followed by the type of view used to render the animation:
+"svg", "text", "visual", or "interactive
+
+<b>"-speed"</b> is followed by the integer value corresponding to how fast the animation will run
+<h4> Examples: </h4>
+<b>  -in toh-8.txt -view visual -speed 10</b>
+- *toh-8.txt* file from the *resources* directory will be used for to build the model
+- the text containing information about the shapes and motions will be printed in *System.out*
+- the animation will appear in a java.awt window without capacity for user control
+- the animation will run at a speed of 10
+
+<b>  -in buildings.txt -out info.txt-view interactive -speed 30</b>
+
+- *buildings.txt* file from the *resources* directory will be used for to build the model
+- the text containing information about the shapes and motions will be printed in *info.txt* file 
+in the *resources* directory
+- the animation will appear in a java.awt window with the capacity for user control
+- the animation will run at a speed of 30
+
+<b>  -in buildings.txt -out buildings.svg -view svg -speed 5</b>
+
+- *buildings.txt* file from the *resources* directory will be used for to build the model
+- the svg text containing information about the shapes and motions will be printed in *buildings.svg* file
+  in the *resources* directory
+    - animation can be viewed by opening the generated svg file in a browser
+- the animation will run at a speed of 5
+
+</p>
+
+<h2> Project Structure: </h2> 
+
 <h5>Interface: IColor</h5>
 - provides common functionality which all IColor objects share
 - used to provide color to shapes 
@@ -80,8 +133,7 @@
      - allows for input testing and checking
        whether proper method was called from controller.
         
-               
- 
+       
 <h5>Interface: AnimationBuilder</h5>
 
 - Class Builder
@@ -93,7 +145,7 @@
 
 - allow the user to see and use the contents of an animationModel without permitting mutation 
     - Class ReadOnlyModel: 
-       passed into all of the view implementations so that the view can not be used to 
+       passed into all the view implementations so that the view can not be used to 
        mutate the model 
 
      
@@ -104,98 +156,4 @@
      - taken in a view(which already has a model)
      - acts as an actionListener for the Interactive visual view
      - takes in action event and tells the visual view what the effect should be (stop, play, restart, etc.)
-        
-<h5>Interface: ISort </h5>
-- represents common functionality of sorting
-    algos.
-        
-<h5>Abstract Class: AbstractSort </h5>
-
-- provides some common implementation for translating sorting algorithms to files containing animation features
-- allows for the visualization of sorting algorithms in which elements are swapped 
-- Class: BubbleSort 
-     - extends AbstractSort 
-     - sorts an array of integers using the bubble sort technique 
-     - creates a file "bubble.txt" containing the features of the representative animation
-- Class: Selection 
-     - extends AbstractSort 
-     - sorts an array of integers using the selection sort technique 
-     - creates a file "selection.txt" containing the features of the representative animation
-
-
-
-<h5>Additions for hw6</h5>
-
-- Created SVGView and VisualView
-        
-- Created ViewCreator class that constructs the proper view given the ViewType needed
-              
-- Created Excellence class which is the entry point of
-the animation
-
-- Created Builder class which constructs the model
-with the right shapes and animations
-
-- Created a FirstTickComparator which allows sorting
-based on the smallest start tick value. 
-
-
-<h5>Changes from previous assignment for hw7</h5>
-
-- Made our old visual view button-free as per assignment specs
-and made a new visual view that extends upon that old visual
-view and has interactivity.
-
-- Our IView holds all functionalities for views
-and it is up to the views themselves
-if they support the operation or not.
-
-- Action handling is now done by the controller instead
-of the view.
-
-- Controller handles writing to files.
-
-- View creator method now takes an Appendable
-for rendering for SVG and Textual views.
-
-- View Creator now includes Interactive as a type.
-
-- Excellence main method handles for interactive view.
-
-- Created MockView and ControllerTest for controller
-  testing. 
-  
-- Removed "resources" from file path in Excellence.     
-         
-- Excellence main method uses controllers execute
-    method                  
-          
-
-
-
-
-
-
-
-    
-    
-    
-       
-       
-
-               
-         
-         
-     
-     
-     
-     
-     
-         
-         
-         
-         
-         
-         
-
      

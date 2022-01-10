@@ -62,7 +62,7 @@ public final class Excellence {
       if (args[i].equals("-in")) {
         if (i + 1 < args.length) {
           try {
-            inFile = new FileReader("/Users/dimavremenko/Downloads/extraCredit/resources/toh-8.txt");
+            inFile = new FileReader("resources/" + args[i+1]);
             //System.out.println(args[i+1]);
           } catch (FileNotFoundException e) {
             errorPopUp("File not valid!");
