@@ -26,7 +26,9 @@ default is set to <i>System.out</i>
 <b>"-speed"</b> is followed by the integer value corresponding to how fast the animation will run
 <h4> Examples: </h4>
 <b>  -in toh-8.txt -view visual -speed 10</b>
+
 - *toh-8.txt* file from the *resources* directory will be used for to build the model
+
 - the text containing information about the shapes and motions will be printed in *System.out*
 - the animation will appear in a java.awt window without capacity for user control
 - the animation will run at a speed of 10
