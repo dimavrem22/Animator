@@ -64,7 +64,5 @@ public class ViewCreatorTest {
     IReadOnlyModel m = new ReadOnlyModel(new AnimationModel());
     ViewCreator vc = new ViewCreator();
     Appendable out = new StringBuilder();
-    IView result = vc.create(ViewType.PROVIDER, m, 10,out);
-    assertTrue(result instanceof IAnimationViewToIViewAdapter);
   }
 }

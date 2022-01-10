@@ -3,14 +3,6 @@ package cs3500.animator;
 import cs3500.animator.controller.Controller;
 import cs3500.animator.controller.IController;
 import cs3500.animator.model.IAnimationModel;
-import cs3500.animator.provider.controller.FeaturesImpl;
-import cs3500.animator.provider.model.AnimationModel;
-import cs3500.animator.provider.model.AnimationModelImpl;
-import cs3500.animator.provider.model.ReadOnlyModelImpl;
-import cs3500.animator.provider.view.IAnimationView;
-import cs3500.animator.provider.view.IAnimationViewToIViewAdapter;
-import cs3500.animator.provider.view.IVisualAnimationView;
-import cs3500.animator.provider.view.InteractiveVisualAnimationView;
 import cs3500.animator.view.ViewCreator;
 import cs3500.animator.view.ViewCreator.ViewType;
 import cs3500.animator.model.AnimationModel.Builder;
@@ -25,18 +17,12 @@ import java.io.IOException;
 import java.io.Writer;
 import javax.swing.JOptionPane;
 
-// You can run with java -jar ./hw7_yay.jar -in hanoi.txt -view interactive -speed 40
-// in resources directory.
-
-// bubble.txt and selection.txt in resources are output files from
-// our produced animations.
 
 /**
  * Excellence class is used for running animations. It constructs a model and a view based on the
  * user's input arguments.
  */
 public final class Excellence {
-
 
   /**
    * The main method is used to run the animations. The user passes in arguments which specify the
@@ -55,7 +41,6 @@ public final class Excellence {
     Writer output = null;
     int speed = 1;
     String viewType = null;
-    boolean isProvider = false;
 
     for (int i = 0; i < args.length; i++) {
 
@@ -138,38 +123,15 @@ public final class Excellence {
         isVisual = true;
         break;
 
-      case "provider":
-
-        //System.out.println("HII");
-        //System.out.println(temp.getMotions("window011"));
-        AnimationModel temp2 = new AnimationModelImpl(temp);
-        IVisualAnimationView v = new InteractiveVisualAnimationView(new ReadOnlyModelImpl(temp2),speed);
-        //vc.create(ViewType.PROVIDER,model,speed,out);
-        view = new IAnimationViewToIViewAdapter(v);
-        //v.addFeatures(new FeaturesImpl(view));
-        //view.setButtonListeners(new Controller(view));
-        //view.render();
-        //v.render();
-        //v.startAnimation();
-        Controller c = new Controller(view);
-        c.execute();
-        isVisual = true;
-        isProvider = true;
-
-        //view.setButtonListeners(new Controller(view));
-        //view.render();
-        break;
-
       default:
         errorPopUp("View type not available");
         return;
     }
 
     IController controller = null;
-    if (!isProvider) {
+
       controller = new Controller(view);
       controller.execute();
-    }
 
     if (output != null) {
 
@@ -181,10 +143,8 @@ public final class Excellence {
       view = vc.create(ViewType.TEXTUAL,model,speed,out);
       controller = new Controller(view);
       controller.execute();
-      System.out.println(out.toString());
+      System.out.println(out);
     }
-
-
   }
 
   /**

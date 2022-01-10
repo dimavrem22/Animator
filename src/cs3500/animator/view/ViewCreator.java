@@ -16,11 +16,10 @@ public class ViewCreator {
    *   <li>SVG - represents the svg version</li>
    *   <li>VISUAL - represents the non-original gui version</li>
    *   <li>INTERACTIVE - represents the interactive version</li>
-   *   <li>PROVIDER - represents the provider interactive (hybrid) version</li>
    * </ul>
    */
   public enum ViewType {
-    TEXTUAL, SVG, VISUAL, INTERACTIVE, PROVIDER;
+    TEXTUAL, SVG, VISUAL, INTERACTIVE
   }
 
   /**

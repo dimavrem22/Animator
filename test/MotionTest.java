@@ -19,12 +19,6 @@ import static org.junit.Assert.assertTrue;
  */
 public class MotionTest {
 
-  IMotion changeSize;
-  IMotion changePosition;
-  IMotion changeColor;
-
-  IMotion allChange;
-
   IShape rectangle;
   IShape circle;
 
