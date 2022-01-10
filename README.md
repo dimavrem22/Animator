@@ -1,4 +1,4 @@
-#Animator
+<h1> Animator </h1>
 
 <h2> About Project: </h2> 
 Animator utilizes the Model-View-Controller design pattern to render animations
