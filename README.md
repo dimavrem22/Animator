@@ -32,7 +32,7 @@ default is set to <i>System.out</i>
 - the animation will appear in a java.awt window without capacity for user control
 - the animation will run at a speed of 10
 
-><b>  -in buildings.txt -out info.txt-view interactive -speed 30</b>
+><b>  -in buildings.txt -out info.txt -view interactive -speed 30</b>
 
 - *buildings.txt* file from the *resources* directory will be used for to build the model
 - the text containing information about the shapes and motions will be printed in *info.txt* file 
